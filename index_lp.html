@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>２りんかん前夜祭 | 上川の地場産品を味わい尽くす特別な夜</title>
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
+      background-color: #F5F8F2;
+      color: #2E3A2C;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===========================
+       COLOR VARIABLES
+    =========================== */
+    :root {
+      --bg:           #F5F8F2;
+      --bg-alt:       #FAF6F0;
+      --green:        #4B6F44;
+      --green-dark:   #2E4A28;
+      --green-light:  #D6E8D0;
+      --orange:       #C97A3C;
+      --orange-dark:  #A85E28;
+      --text:         #2E3A2C;
+      --text-muted:   #6B7B68;
+      --white:        #FFFFFF;
+      --gold:         #F5C87A;
+    }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 { line-height: 1.35; font-weight: 900; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); color: var(--green); }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--green); }
+
+    /* ===========================
+       LAYOUT UTILITIES
+    =========================== */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section--alt { background-color: var(--bg-alt); }
+    .section--dark { background-color: var(--green-dark); color: var(--white); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1.5px solid var(--orange);
+      border-radius: 2px;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .divider { width: 48px; height: 3px; background: var(--orange); margin: 20px 0; }
+
+    /* ===========================
+       IMAGE HAZE (PLACEHOLDER)
+    =========================== */
+    .img-haze {
+      filter: blur(5px) brightness(0.85) saturate(0.7);
+      transform: scale(1.04);
+    }
+    .img-wrap { overflow: hidden; border-radius: 8px; position: relative; }
+
+    /* ===========================
+       STICKY HEADER
+    =========================== */
+    #sticky-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      background: rgba(46, 74, 40, 0.96);
+      backdrop-filter: blur(6px);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    #sticky-header.visible { transform: translateY(0); }
+    .sticky-title { color: var(--white); font-size: 0.9rem; font-weight: 700; }
+    .sticky-cta {
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .sticky-cta:hover { background: var(--orange-dark); }
+
+    /* ===========================
+       1. FIRSTVIEW / HERO
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: var(--green-dark);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: blur(6px) brightness(0.42) saturate(0.65);
+      transform: scale(1.07);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(20,40,16,0.6) 0%, rgba(8,18,6,0.78) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 120px 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 6px 16px;
+      border-radius: 2px;
+    }
+    .hero-badge--orange { background: var(--orange); color: var(--white); }
+    .hero-badge--outline { border: 1.5px solid rgba(255,255,255,0.7); color: rgba(255,255,255,0.9); }
+    .hero-badge--gold { background: var(--gold); color: var(--green-dark); }
+
+    .hero-headline {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .hero-headline em { color: var(--gold); font-style: normal; }
+
+    .hero-catch {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 580px;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .hero-meta-icon { width: 18px; height: 18px; opacity: 0.8; }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      padding: 18px 48px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn-cta:hover { background: var(--orange-dark); }
+
+    .btn-cta--hero {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      padding: 22px 0;
+      width: 100%;
+      max-width: 480px;
+      display: block;
+    }
+    .hero-microcopy {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      z-index: 2;
+    }
+    .scroll-arrow {
+      width: 18px; height: 18px;
+      border-right: 2px solid rgba(255,255,255,0.45);
+      border-bottom: 2px solid rgba(255,255,255,0.45);
+      transform: rotate(45deg);
+    }
+
+    /* ===========================
+       2. EMPATHY SECTION
+    =========================== */
+    #empathy { background-color: var(--bg-alt); padding: 80px 0; }
+    .empathy-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .empathy-headline {
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 32px;
+      line-height: 1.45;
+    }
+    .empathy-text {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .empathy-highlight {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .empathy-list {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+      margin-top: 24px;
+      border-top: 2px solid var(--green-light);
+    }
+    .empathy-list li {
+      font-size: 1rem;
+      color: var(--text);
+      padding: 12px 0;
+      padding-left: 28px;
+      position: relative;
+      border-bottom: 1px solid var(--green-light);
+    }
+    .empathy-list li::before {
+      content: "…";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    /* ===========================
+       3. BENEFIT / SOLUTION
+    =========================== */
+    #benefit { background-color: var(--bg); padding: 80px 0; }
+    .benefit-lead {
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 900;
+      color: var(--green);
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .benefit-sub {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 40px;
+    }
+    .benefit-card { display: flex; flex-direction: column; gap: 14px; }
+    .benefit-card .img-wrap { width: 100%; aspect-ratio: 4/3; }
+    .benefit-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .benefit-card-num { font-size: 2.2rem; font-weight: 900; color: var(--green-light); line-height: 1; }
+    .benefit-card-title { font-size: 1.1rem; font-weight: 900; color: var(--green); line-height: 1.4; }
+    .benefit-card-desc { font-size: 0.93rem; color: var(--text); line-height: 1.8; margin-top: 0; }
+
+    /* ===========================
+       4. STORY SECTION
+    =========================== */
+    #story { background-color: var(--green-dark); color: var(--white); padding: 80px 0; }
+    #story h2 { color: var(--gold); }
+    #story .divider { background: var(--gold); }
+    .story-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .story-text p { font-size: 1rem; color: rgba(255,255,255,0.87); line-height: 1.9; }
+    .story-quote {
+      margin-top: 28px;
+      padding: 20px 24px;
+      border-left: 4px solid var(--gold);
+      background: rgba(255,255,255,0.06);
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+    }
+    .story-profile { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .story-profile .img-wrap {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(245,200,122,0.5);
+    }
+    .story-profile .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .story-profile-name { font-size: 1.1rem; font-weight: 700; color: var(--gold); text-align: center; }
+    .story-profile-role { font-size: 0.83rem; color: rgba(255,255,255,0.6); text-align: center; margin-top: 0; }
+
+    /* ===========================
+       5. PLAN SECTION
+    =========================== */
+    #plan { background-color: var(--bg-alt); padding: 80px 0; }
+    .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 36px; }
+    .plan-card { background: var(--white); border: 2px solid var(--green-light); border-radius: 8px; overflow: hidden; }
+    .plan-card-header { background: var(--green); color: var(--white); padding: 24px 28px; }
+    .plan-card-header--dark { background: var(--green-dark); }
+    .plan-card-title { font-size: 1.15rem; font-weight: 900; margin-bottom: 8px; }
+    .plan-card-price { font-size: 2.1rem; font-weight: 900; line-height: 1; }
+    .plan-card-price span { font-size: 0.88rem; font-weight: 400; opacity: 0.8; }
+    .plan-card-body { padding: 24px 28px; }
+    .plan-card-list { list-style: none; }
+    .plan-card-list li {
+      font-size: 0.93rem;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--green-light);
+      padding-left: 22px;
+      position: relative;
+    }
+    .plan-card-list li::before { content: "✓"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+    .plan-card-list li:last-child { border-bottom: none; }
+
+    .rental-box {
+      background: var(--white);
+      border: 1.5px dashed var(--green);
+      border-radius: 8px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .rental-label { font-size: 1rem; font-weight: 700; color: var(--green); white-space: nowrap; }
+    .rental-price { font-size: 1.4rem; font-weight: 900; color: var(--orange); }
+    .rental-desc { font-size: 0.88rem; color: var(--text-muted); margin-top: 0; }
+
+    .quota-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .quota-table th { background: var(--green); color: var(--white); padding: 13px 18px; text-align: left; font-weight: 700; }
+    .quota-table td { padding: 13px 18px; border-bottom: 1px solid var(--green-light); color: var(--text); }
+    .quota-table tr:last-child td { border-bottom: none; }
+    .quota-table tr:nth-child(even) td { background: var(--bg); }
+    .status-open {
+      display: inline-block;
+      background: #E8F5E2;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--green-light);
+    }
+
+    /* ===========================
+       6. FAQ SECTION
+    =========================== */
+    #faq { background-color: var(--bg); padding: 80px 0; }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid var(--green-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .faq-item { border-bottom: 1.5px solid var(--green-light); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--green);
+      background: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; font-size: 1.4rem; font-weight: 300; color: var(--orange); flex-shrink: 0; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item[open] summary { background: var(--green-light); }
+    .faq-answer { padding: 20px 24px; font-size: 0.93rem; color: var(--text); line-height: 1.8; background: var(--white); }
+
+    .disclaimer-box {
+      margin-top: 36px;
+      background: var(--bg-alt);
+      border: 1.5px solid var(--green-light);
+      border-radius: 8px;
+      padding: 22px 28px;
+    }
+    .disclaimer-box h4 { font-size: 0.88rem; color: var(--green); margin-bottom: 10px; font-weight: 700; }
+    .disclaimer-list { list-style: none; }
+    .disclaimer-list li {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding: 4px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    .disclaimer-list li::before { content: "※"; position: absolute; left: 0; color: var(--orange); font-size: 0.78rem; }
+
+    /* ===========================
+       7. ACCESS SECTION
+    =========================== */
+    #access { background-color: var(--bg-alt); padding: 80px 0; }
+    .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .access-info-block { margin-bottom: 28px; }
+    .access-info-block h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .access-info-block p { font-size: 0.93rem; color: var(--text); line-height: 1.8; margin-top: 0; }
+    .access-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .access-table th {
+      text-align: left;
+      padding: 10px 12px 10px 0;
+      color: var(--orange);
+      font-weight: 700;
+      border-bottom: 1px solid var(--green-light);
+      width: 90px;
+      vertical-align: top;
+    }
+    .access-table td {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--green-light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .map-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 2px dashed var(--green);
+    }
+    .map-note { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; text-align: center; line-height: 1.6; }
+
+    /* ===========================
+       8. CLOSING SECTION
+    =========================== */
+    #closing {
+      background: linear-gradient(160deg, var(--green-dark) 0%, #1A2E18 100%);
+      color: var(--white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    .closing-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .closing-ps-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    #closing h2 { color: var(--white); font-size: clamp(1.6rem, 4vw, 2.5rem); margin-bottom: 32px; line-height: 1.35; }
+    .closing-text { font-size: 1.05rem; color: rgba(255,255,255,0.82); line-height: 1.9; margin-bottom: 48px; }
+    .btn-cta--closing {
+      background: var(--orange);
+      color: var(--white);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      padding: 28px 0;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 560px;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .btn-cta--closing:hover { background: var(--orange-dark); }
+    .closing-microcopy { margin-top: 16px; font-size: 0.83rem; color: rgba(255,255,255,0.52); line-height: 1.6; }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #0E1A0C;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.78rem;
+    }
+
+    /* ===========================
+       9. FLOATING CTA BUTTON
+    =========================== */
+    #float-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 900;
+      padding: 16px 22px;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+      text-align: center;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    #float-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    #float-cta:hover { background: var(--orange-dark); }
+    #float-cta .float-sub { display: block; font-size: 0.68rem; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .benefit-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-inner { grid-template-columns: 1fr; gap: 40px; }
+      .plan-grid { grid-template-columns: 1fr; gap: 20px; }
+      .access-grid { grid-template-columns: 1fr; gap: 40px; }
+      .rental-box { flex-direction: column; align-items: flex-start; gap: 10px; }
+      #float-cta { bottom: 16px; right: 12px; left: 12px; border-radius: 8px; font-size: 1rem; padding: 18px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-badge-row { gap: 8px; }
+      .btn-cta--closing { font-size: 1.1rem; padding: 22px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       STICKY HEADER
+  =========================== -->
+  <header id="sticky-header">
+    <div class="sticky-title">２りんかん前夜祭 ｜ 7月10日（金）上川</div>
+    <a href="#reserve" class="sticky-cta">今すぐ予約する</a>
+  </header>
+
+  <!-- ===========================
+       1. FIRSTVIEW / HERO
+  =========================== -->
+  <section id="hero">
+    <!-- 差し替え用プレースホルダー画像 -->
+    <img src="hero.jpg" alt="上川の大自然とキャンプファイヤー" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge-row">
+        <span class="hero-badge hero-badge--orange">２りんかん祭り Connect HOKKAIDO 参加者限定</span>
+        <span class="hero-badge hero-badge--gold">完全限定 20組</span>
+        <span class="hero-badge hero-badge--outline">先着順受付</span>
+      </div>
+      <h1 class="hero-headline">
+        上川の地場産品を<br>
+        <em>味わい尽くす。</em><br>
+        ここでしか出会えない<br>特別な前夜祭
+      </h1>
+      <p class="hero-catch">
+        ふたばジビエの鹿肉・大雪高原牛・大雪サーモンの釜焼きピザ・昭和歌謡とキャンプファイヤー。<br>
+        大雪山の麓で過ごす、忘れられない一夜。
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg class="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          2025年 7月10日（金）
+        </div>
+        <div class="hero-meta-item">
+          <svg class="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          上川ファミリーオートキャンプ村 ／ ヤマイチカフェ（北海道上川郡上川町）
+        </div>
+      </div>
+      <a href="#reserve" class="btn-cta btn-cta--hero">いますぐ予約する</a>
+      <p class="hero-microcopy">〇月〇日予約締切。各グループ枠は定員に達し次第、先着順で受付終了となります。</p>
+    </div>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       2. EMPATHY SECTION
+  =========================== -->
+  <section id="empathy">
+    <div class="empathy-inner">
+      <div class="section-label">あなたへの問いかけ</div>
+      <h2 class="empathy-headline">
+        せっかくのキャンプツーリング、<br>
+        スーパーの買い出しで終わっていませんか？
+      </h2>
+      <div class="divider" style="margin: 0 auto 24px;"></div>
+      <p class="empathy-text">
+        地元ならではの新鮮な食材を食べたいけれど、<br>
+        <span class="empathy-highlight">バイクの積載や手配の手間</span>を考えると難しい…<br>
+        そんな経験はありませんか？
+      </p>
+      <ul class="empathy-list">
+        <li>キャンプ場近くのスーパーで妥協した食材を買ってしまう</li>
+        <li>地元の名物を食べたいが、どこで買えるかわからない</li>
+        <li>バイクに大量の食材や調理器具を積めない</li>
+        <li>せっかくの北海道なのに、食の体験が物足りない</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===========================
+       3. BENEFIT / SOLUTION
+  =========================== -->
+  <section id="benefit" class="section">
+    <div class="container">
+      <div class="section-label">解決策とベネフィット</div>
+      <p class="benefit-lead">
+        前夜祭なら、手ぶらで上川の<br>極上食材と特別な夜が手に入ります
+      </p>
+      <p class="benefit-sub">すべてお任せ。あなたはただ、上川の夜を楽しむだけでいい。</p>
+      <div class="benefit-grid">
+
+        <div class="benefit-card">
+          <div class="img-wrap">
+            <img src="venison.jpg" alt="ふたばジビエの鹿肉・大雪高原牛" class="img-haze">
+          </div>
+          <div class="benefit-card-num">01</div>
+          <h3 class="benefit-card-title">ふたばジビエの鹿肉 &amp; 大雪高原牛・季節の野菜</h3>
+          <p class="benefit-card-desc">
+            上川が誇るジビエ専門「ふたば」の鹿肉と、大雪高原牛を炭火でじっくり焼き上げます。旬の地場野菜とともに、北海道の大地の恵みをそのまま味わってください。
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="img-wrap">
+            <img src="pizza.jpg" alt="大雪サーモンの釜焼きピザ" class="img-haze">
+          </div>
+          <div class="benefit-card-num">02</div>
+          <h3 class="benefit-card-title">大雪サーモンを使った本格釜焼きピザ</h3>
+          <p class="benefit-card-desc">
+            薪窯で焼き上げる薄生地の本格ナポリスタイル。大雪山の清流で育った大雪サーモンをトッピングした、ここでしか食べられない一枚です。
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="img-wrap">
+            <img src="mountain.jpg" alt="セルフハイボールバー" class="img-haze">
+          </div>
+          <div class="benefit-card-num">03</div>
+          <h3 class="benefit-card-title">セルフハイボールバー ― カムイミンタラの名水 × 瀬戸田産レモン</h3>
+          <p class="benefit-card-desc">
+            大雪山の源流域「カムイミンタラ（神々の遊ぶ庭）」から湧き出る名水と、瀬戸田産レモンで作る自分だけのハイボール。自然の恵みを一杯に凝縮した至福の時間。
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="img-wrap">
+            <img src="campfire.jpg" alt="昭和歌謡とキャンプファイヤー" class="img-haze">
+          </div>
+          <div class="benefit-card-num">04</div>
+          <h3 class="benefit-card-title">昭和歌謡 × キャンプファイヤーのエモーショナルな夜</h3>
+          <p class="benefit-card-desc">
+            焚き火を囲んで、世代を超えて歌い、語り合う夜。昭和歌謡の懐かしいメロディーが大雪山の星空に溶け込む、忘れられないひとときをお届けします。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       4. STORY SECTION
+  =========================== -->
+  <section id="story" class="section--dark">
+    <div class="container">
+      <div class="section-label" style="border-color:var(--gold); color:var(--gold);">主催者の想い</div>
+      <h2>なぜ、20組限定の前夜祭を開催するのか？</h2>
+      <div class="divider"></div>
+      <div class="story-inner">
+        <div class="story-text">
+          <p>
+            翌日の「２りんかん祭り Connect HOKKAIDO」本祭の前に、前日から上川町の自然と食を存分に堪能してほしい。
+          </p>
+          <p>
+            ふたばジビエの鹿肉で英気を養い、大雪山の名水で喉を潤し、仲間と焚き火を囲んで語り合う。そんな最高の状態で、翌日の本祭に向かってほしいのです。
+          </p>
+          <p>
+            上川町に来てくれたライダーたちに、「ここに来てよかった」と心から思ってもらえる体験を届けたい。それがこの前夜祭を開く理由です。
+          </p>
+          <blockquote class="story-quote">
+            「20組という少人数だからこそ、一人ひとりと向き合い、上川の魅力を全力でお伝えできます。ぜひ、一緒に最高の夜を作りましょう。」
+          </blockquote>
+        </div>
+        <div class="story-profile">
+          <div class="img-wrap">
+            <!-- 差し替え用：主催者シンジ氏のポートレート -->
+            <img src="nature.jpg" alt="主催者シンジ氏" class="img-haze">
+          </div>
+          <p class="story-profile-name">シンジ氏</p>
+          <p class="story-profile-role">
+            ヤマイチカフェ 引継ぎ運営者<br>
+            上川ファミリーオートキャンプ村 管理人
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       5. PLAN SECTION
+  =========================== -->
+  <section id="plan" class="section section--alt">
+    <div class="container">
+      <div class="section-label">プラン・料金</div>
+      <h2>お好きなスタイルをお選びください</h2>
+      <div class="divider"></div>
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-card-header">
+            <div class="plan-card-title">日帰りプラン</div>
+            <div class="plan-card-price">¥5,500<span>（税込）／1名</span></div>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-card-list">
+              <li>BBQディナー（鹿肉・大雪高原牛・季節野菜）</li>
+              <li>大雪サーモンの本格釜焼きピザ</li>
+              <li>ドリンクバー（ソフトドリンク含む）</li>
+              <li>セルフハイボールバー利用</li>
+              <li>昭和歌謡×キャンプファイヤー参加</li>
+              <li>先着ノベルティプレゼント（数量限定）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-card-header plan-card-header--dark">
+            <div class="plan-card-title">バンガロー宿泊プラン</div>
+            <div class="plan-card-price">¥9,900<span>（税込）／1名</span></div>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-card-list">
+              <li>日帰りプランの全内容</li>
+              <li>バンガロー宿泊（1泊）</li>
+              <li>翌朝の朝食（豚汁 &amp; コーヒー）</li>
+              <li>大雪山の朝の空気を独り占め</li>
+              <li>先着ノベルティプレゼント（数量限定）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-box">
+        <div>
+          <div class="rental-label">レンタルオプション</div>
+          <p class="rental-desc">マット・寝袋セット</p>
+        </div>
+        <div class="rental-price">¥550<span style="font-size:0.82rem; font-weight:400; color:var(--text-muted);">（税込）</span></div>
+      </div>
+
+      <h3 style="margin-bottom:16px; color:var(--green);">定員枠（完全限定20組）</h3>
+      <table class="quota-table">
+        <thead>
+          <tr>
+            <th>グループ枠</th>
+            <th>人数</th>
+            <th>組数</th>
+            <th>受付状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A枠</td>
+            <td>2〜3名</td>
+            <td>10組</td>
+            <td><span class="status-open">受付中</span></td>
+          </tr>
+          <tr>
+            <td>B枠</td>
+            <td>3〜4名</td>
+            <td>5組</td>
+            <td><span class="status-open">受付中</span></td>
+          </tr>
+          <tr>
+            <td>C枠</td>
+            <td>4〜5名</td>
+            <td>5組</td>
+            <td><span class="status-open">受付中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===========================
+       6. FAQ SECTION
+  =========================== -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-label">よくある質問</div>
+      <h2>FAQ</h2>
+      <div class="divider"></div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Q. ゴミは持ち帰りですか？</summary>
+          <div class="faq-answer">
+            会場に専用ゲージがあり、こちらで処分可能です。手ぶらでお越しいただいて問題ありません。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. 自分のテントサイトで焚き火はできますか？</summary>
+          <div class="faq-answer">
+            個別の焚き火はご遠慮いただいておりますが、皆様で囲める大きなキャンプファイヤーをご用意しております。一緒に囲んで楽しみましょう。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. お酒はどうなりますか？</summary>
+          <div class="faq-answer">
+            地酒などはご用意しておりますが、基本はセルフサービスとなります。大雪山の名水と瀬戸田産レモンを使ったセルフハイボールバーもご自由にお楽しみいただけます。飲酒運転は絶対におやめください。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. メニューは当日変わることがありますか？</summary>
+          <div class="faq-answer">
+            仕入れ状況によってメニューが変更になる場合がございます。代替食材は同等品質のものをご用意いたします。あらかじめご了承ください。
+          </div>
+        </details>
+
+      </div>
+
+      <div class="disclaimer-box">
+        <h4>免責事項・注意事項</h4>
+        <ul class="disclaimer-list">
+          <li>食物アレルギーをお持ちの方は予約時に必ずお申し出ください。</li>
+          <li>荒天時は内容変更・中止となる場合があります。</li>
+          <li>未成年者への飲酒提供は行いません。</li>
+          <li>会場内での事故・盗難等について、主催者は責任を負いかねます。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       7. ACCESS SECTION
+  =========================== -->
+  <section id="access" class="section section--alt">
+    <div class="container">
+      <div class="section-label">アクセス</div>
+      <h2>会場へのアクセス</h2>
+      <div class="divider"></div>
+      <div class="access-grid">
+        <div>
+          <div class="access-info-block">
+            <h4>会場</h4>
+            <p>
+              <strong>ヤマイチカフェ ／ 上川ファミリーオートキャンプ村</strong><br>
+              〒078-1731 北海道上川郡上川町<br>
+              （詳細住所は予約確定後にご案内いたします）
+            </p>
+          </div>
+          <div class="access-info-block">
+            <h4>交通手段</h4>
+            <table class="access-table">
+              <tr>
+                <th>車・バイク</th>
+                <td>旭川紋別自動車道・上川層雲峡ICより約〇分。層雲峡ビジターセンターを目印にお越しください。</td>
+              </tr>
+              <tr>
+                <th>公共交通</th>
+                <td>JR上川駅よりバスまたはタクシーをご利用ください（詳細は予約確定後にご案内）。</td>
+              </tr>
+              <tr>
+                <th>駐車場</th>
+                <td>無料駐車場あり（台数に限りがあります）。</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <!-- Googleマップ埋め込みプレースホルダー -->
+          <!-- 本番では以下の div を削除し、<iframe src="https://www.google.com/maps/embed?pb=..."> に差し替えてください -->
+          <div class="map-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.6;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span>Googleマップ 埋め込みエリア</span>
+            <span class="map-note">
+              &lt;iframe src="https://www.google.com/maps/embed?pb=..."&gt;<br>
+              に差し替えてください
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       8. CLOSING SECTION
+  =========================== -->
+  <section id="closing">
+    <div class="closing-inner">
+      <span class="closing-ps-label">追伸</span>
+      <h2>上川の雄大な夜が<br>あなたを待っています</h2>
+      <p class="closing-text">
+        誠心誠意、皆様をお迎えする準備を進めております。<br>
+        日常では味わえないこの特別な体験を逃さないでください。<br><br>
+        定員に達し次第終了となりますので、<br>今すぐ下のボタンからご予約を完了させてください。
+      </p>
+      <div id="reserve">
+        <a href="#reserve" class="btn-cta--closing">いますぐ予約する</a>
+        <p class="closing-microcopy">
+          〇月〇日予約締切。各グループ枠は定員に達し次第、先着順で受付終了となります。<br>
+          ご予約・お問い合わせ：ヤマイチカフェ（上川）営業時間内にご連絡ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer>
+    <p>© 2025 ヤマイチカフェ ／ 上川ファミリーオートキャンプ村　All Rights Reserved.</p>
+  </footer>
+
+  <!-- ===========================
+       9. FLOATING CTA BUTTON
+  =========================== -->
+  <a href="#reserve" id="float-cta">
+    今すぐ予約する
+    <span class="float-sub">完全限定20組・先着順</span>
+  </a>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // Sticky header & floating CTA: show after hero section scrolls out of view
+    const hero = document.getElementById('hero');
+    const stickyHeader = document.getElementById('sticky-header');
+    const floatCta = document.getElementById('float-cta');
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isHeroVisible = entry.isIntersecting;
+        if (isHeroVisible) {
+          stickyHeader.classList.remove('visible');
+          floatCta.classList.remove('visible');
+        } else {
+          stickyHeader.classList.add('visible');
+          floatCta.classList.add('visible');
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(hero);
+  </script>
+
+</body>
+</html>

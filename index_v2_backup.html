@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>２りんかん前夜祭 ｜ 上川テロワールを味わい尽くす、完全限定20組の夜</title>
+  <style>
+    /* =====================================================
+       RESET & BASE
+    ===================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg:          #F5F8F2;
+      --color-bg-alt:      #FAF6F0;
+      --color-green-deep:  #4B6F44;
+      --color-green-mid:   #6B8F64;
+      --color-green-light: #D6E8D0;
+      --color-orange:      #C97A3C;
+      --color-orange-dark: #A85F28;
+      --color-text:        #2C2C2C;
+      --color-text-sub:    #5A5A5A;
+      --color-border:      #D4DDD0;
+      --color-white:       #FFFFFF;
+      --color-overlay:     rgba(30, 45, 28, 0.55);
+
+      --font-base: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP',
+                   'BIZ UDPGothic', 'Yu Gothic', sans-serif;
+
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --shadow-card: 0 4px 20px rgba(75, 111, 68, 0.12);
+      --transition:  0.25s ease;
+
+      --section-pad: clamp(60px, 8vw, 100px) clamp(16px, 5vw, 80px);
+      --max-w: 1080px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-base);
+      font-size: clamp(15px, 1.6vw, 17px);
+      line-height: 1.8;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =====================================================
+       UTILITY
+    ===================================================== */
+    .container {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: clamp(16px, 4vw, 48px);
+    }
+
+    /* 靄（もや）フィルター ─ すべてのプレースホルダー画像に適用 */
+    .img-haze {
+      filter: blur(5px) brightness(0.88) saturate(0.75);
+      transform: scale(1.04); /* blur端の白縁を隠す */
+      transition: filter var(--transition);
+    }
+
+    .img-haze-light {
+      filter: blur(3px) brightness(0.90) saturate(0.80);
+      transform: scale(1.03);
+    }
+
+    /* 靄ラッパー（overflow:hidden でブラー端を隠す） */
+    .haze-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-green-deep);
+      background: var(--color-green-light);
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--color-green-deep);
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      color: var(--color-text-sub);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* CTA ボタン */
+    .btn-cta {
+      display: inline-block;
+      background: var(--color-orange);
+      color: var(--color-white);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 18px 44px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201, 122, 60, 0.38);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      text-align: center;
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus-visible {
+      background: var(--color-orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(201, 122, 60, 0.48);
+      outline: none;
+    }
+
+    .btn-cta:active {
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       1. HERO
+    ===================================================== */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 背景画像（プレースホルダー） */
+    #hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(7px) brightness(0.72) saturate(0.7);
+      transform: scale(1.06);
+      z-index: 0;
+    }
+
+    /* グラデーションオーバーレイ */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(20, 38, 18, 0.55) 0%,
+        rgba(20, 38, 18, 0.30) 60%,
+        rgba(20, 38, 18, 0.60) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding: clamp(80px, 12vw, 140px) clamp(20px, 5vw, 60px) clamp(60px, 8vw, 100px);
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.30);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '★';
+      color: #F5C842;
+      font-size: 0.85rem;
+    }
+
+    .hero-catch {
+      font-size: clamp(1.6rem, 4.5vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+
+    .hero-catch em {
+      font-style: normal;
+      color: #F5C842;
+    }
+
+    /* 開催情報カード */
+    .hero-info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero-info-item {
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-sm);
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-info-item .icon {
+      font-size: 1.1rem;
+    }
+
+    /* 特典バナー */
+    .hero-novelty {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #C97A3C, #E09050);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 36px;
+      box-shadow: 0 4px 16px rgba(201,122,60,0.45);
+    }
+
+    .hero-novelty .gift-icon {
+      font-size: 1.3rem;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .hero-cta-wrap .btn-cta {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      padding: 20px 52px;
+    }
+
+    .hero-deadline {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+    }
+
+    /* スクロールインジケーター */
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* =====================================================
+       2. WELCOME（主催者の想い）
+    ===================================================== */
+    #welcome {
+      padding: var(--section-pad);
+      background: var(--color-bg-alt);
+    }
+
+    .welcome-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .welcome-text .greeting-quote {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      font-weight: 700;
+      color: var(--color-green-deep);
+      border-left: 4px solid var(--color-orange);
+      padding-left: 20px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .welcome-text p {
+      color: var(--color-text-sub);
+      margin-bottom: 16px;
+    }
+
+    .welcome-portrait-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .welcome-portrait-wrap .haze-wrap {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3/4;
+    }
+
+    .welcome-portrait-wrap .haze-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-caption {
+      text-align: center;
+    }
+
+    .portrait-caption .name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-green-deep);
+    }
+
+    .portrait-caption .role {
+      font-size: 0.82rem;
+      color: var(--color-text-sub);
+      margin-top: 2px;
+    }
+
+    /* =====================================================
+       3. TERROIR（体験グリッド）
+    ===================================================== */
+    #terroir {
+      padding: var(--section-pad);
+      background: var(--color-bg);
+    }
+
+    #terroir .section-header {
+      text-align: center;
+      margin-bottom: clamp(36px, 5vw, 56px);
+    }
+
+    #terroir .section-lead {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .terroir-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .terroir-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .terroir-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(75,111,68,0.18);
+    }
+
+    .terroir-card .card-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .terroir-card .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .terroir-card .card-body {
+      padding: 20px 22px 24px;
+    }
+
+    .terroir-card .card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 6px;
+    }
+
+    .terroir-card .card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-green-deep);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .terroir-card .card-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       4. PLANS（募集要項）
+    ===================================================== */
+    #plans {
+      padding: var(--section-pad);
+      background: var(--color-bg-alt);
+    }
+
+    #plans .section-header {
+      text-align: center;
+      margin-bottom: clamp(36px, 5vw, 56px);
+    }
+
+    /* プランカード */
+    .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .plan-card {
+      background: var(--color-white);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      position: relative;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .plan-card .plan-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-green-deep);
+      margin-bottom: 6px;
+    }
+
+    .plan-card .plan-price {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: var(--color-orange);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .plan-card .plan-price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text-sub);
+    }
+
+    .plan-card .plan-tax {
+      font-size: 0.78rem;
+      color: var(--color-text-sub);
+      margin-bottom: 20px;
+    }
+
+    .plan-card .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .plan-card .plan-features li {
+      font-size: 0.9rem;
+      color: var(--color-text);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .plan-card .plan-features li::before {
+      content: '✓';
+      color: var(--color-green-deep);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* レンタルオプション */
+    .rental-box {
+      background: var(--color-green-light);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .rental-box .rental-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .rental-box .rental-text .rental-title {
+      font-weight: 700;
+      color: var(--color-green-deep);
+      margin-bottom: 2px;
+    }
+
+    .rental-box .rental-text .rental-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-orange);
+    }
+
+    .rental-box .rental-text .rental-note {
+      font-size: 0.82rem;
+      color: var(--color-text-sub);
+    }
+
+    /* 定員枠テーブル */
+    .quota-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-green-deep);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quota-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--color-orange);
+      border-radius: 2px;
+    }
+
+    .quota-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .quota-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .quota-table thead tr {
+      background: var(--color-green-deep);
+      color: #fff;
+    }
+
+    .quota-table th,
+    .quota-table td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .quota-table th {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .quota-table tbody tr:nth-child(even) {
+      background: var(--color-green-light);
+    }
+
+    .quota-table tbody tr:hover {
+      background: #C8DFC4;
+    }
+
+    .quota-table .sold-out {
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    .quota-table .available {
+      color: var(--color-green-deep);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       5. ACCESS（アクセス情報）
+    ===================================================== */
+    #access {
+      padding: var(--section-pad);
+      background: var(--color-bg);
+    }
+
+    .access-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 60px);
+      align-items: start;
+    }
+
+    .access-info .access-venue {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-green-deep);
+      margin-bottom: 16px;
+    }
+
+    .access-info .access-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .access-info .access-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.92rem;
+    }
+
+    .access-info .access-row .a-label {
+      flex-shrink: 0;
+      width: 72px;
+      font-weight: 700;
+      color: var(--color-green-deep);
+      font-size: 0.82rem;
+      background: var(--color-green-light);
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .access-info .access-row .a-val {
+      color: var(--color-text-sub);
+      line-height: 1.6;
+    }
+
+    /* Googleマップ プレースホルダー */
+    .map-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #D4DDD0;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--color-green-mid);
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 2px dashed var(--color-green-mid);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-placeholder .map-icon {
+      font-size: 2.4rem;
+    }
+
+    .map-placeholder .map-note {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--color-text-sub);
+      text-align: center;
+      padding-inline: 16px;
+    }
+
+    /* iframeを埋め込む場合はこのクラスを使用 */
+    .map-iframe-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .map-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* =====================================================
+       6. FAQ
+    ===================================================== */
+    #faq {
+      padding: var(--section-pad);
+      background: var(--color-bg-alt);
+    }
+
+    #faq .section-header {
+      margin-bottom: clamp(32px, 4vw, 48px);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 760px;
+    }
+
+    .faq-item {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--color-green-deep);
+      list-style: none;
+      user-select: none;
+      transition: background var(--transition);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary:hover {
+      background: var(--color-green-light);
+    }
+
+    .faq-item summary .faq-q {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .faq-item summary .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-green-deep);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+
+    .faq-item[open] summary .faq-icon {
+      transform: rotate(45deg);
+      background: var(--color-orange);
+    }
+
+    .faq-item .faq-answer {
+      padding: 0 22px 18px 22px;
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      line-height: 1.75;
+      border-top: 1px solid var(--color-border);
+      padding-top: 14px;
+    }
+
+    /* 免責事項 */
+    .disclaimer-box {
+      margin-top: 40px;
+      background: #FFF8F2;
+      border: 1px solid #E8C8A8;
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      max-width: 760px;
+    }
+
+    .disclaimer-box .disclaimer-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-orange-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .disclaimer-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .disclaimer-box ul li {
+      font-size: 0.85rem;
+      color: var(--color-text-sub);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.65;
+    }
+
+    .disclaimer-box ul li::before {
+      content: '※';
+      color: var(--color-orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* =====================================================
+       7. CLOSING CTA
+    ===================================================== */
+    #closing {
+      padding: clamp(80px, 10vw, 120px) clamp(20px, 5vw, 60px);
+      background: linear-gradient(160deg, #2A4228 0%, #3D5E3A 50%, #4B6F44 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 背景テクスチャ的な装飾 */
+    #closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 70%, rgba(201,122,60,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .closing-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin-inline: auto;
+    }
+
+    .closing-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .closing-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .closing-title em {
+      font-style: normal;
+      color: #F5C842;
+    }
+
+    .closing-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .closing-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .closing-btn-wrap .btn-cta {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      padding: 22px 64px;
+      box-shadow: 0 8px 32px rgba(201,122,60,0.5);
+    }
+
+    .closing-deadline {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    .closing-deadline strong {
+      color: #F5C842;
+    }
+
+    /* 枠残数インジケーター */
+    .quota-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .quota-ind {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .quota-ind .q-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+    }
+
+    .quota-ind .q-bar-wrap {
+      width: 80px;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .quota-ind .q-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #F5C842, #C97A3C);
+      border-radius: 3px;
+    }
+
+    .quota-ind .q-count {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: #1A2A18;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.78rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: underline;
+    }
+
+    /* =====================================================
+       STICKY HEADER（スクロール後に表示）
+    ===================================================== */
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(245,248,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 10px clamp(16px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-header.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-header .sticky-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--color-green-deep);
+    }
+
+    .sticky-header .btn-cta {
+      font-size: 0.82rem;
+      padding: 10px 24px;
+      box-shadow: none;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 768px) {
+      .welcome-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-portrait-wrap {
+        order: -1;
+      }
+
+      .welcome-portrait-wrap .haze-wrap {
+        max-width: 240px;
+        aspect-ratio: 1/1;
+      }
+
+      .access-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta-wrap .btn-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-novelty {
+        font-size: 0.85rem;
+      }
+
+      .quota-indicators {
+        gap: 12px;
+      }
+
+      .closing-btn-wrap .btn-cta {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terroir-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-info-grid {
+        flex-direction: column;
+      }
+
+      .hero-info-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       STICKY HEADER
+  ===================================================== -->
+  <header class="sticky-header" id="stickyHeader" role="banner">
+    <span class="sticky-title">２りんかん前夜祭 ｜ 7月11日 上川</span>
+    <a href="#reserve" class="btn-cta" aria-label="予約ページへ">いますぐ予約する</a>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         1. HERO
+    ===================================================== -->
+    <section id="hero" aria-label="メインビジュアル">
+      <!--
+        【画像差し替え方法】
+        src 属性を実際の画像パスまたはURLに変更してください。
+        例: src="images/hero-kamikawa.jpg"
+      -->
+      <img
+        class="hero-bg"
+        src="hero.jpg"
+        alt="上川の山並みとキャンプ場の風景（プレースホルダー）"
+        loading="eager"
+        fetchpriority="high"
+      />
+
+      <div class="hero-inner">
+        <div class="hero-badge">完全限定20組 ｜ 2025年7月11日（金）開催</div>
+
+        <h1 class="hero-catch">
+          上川のテロワールを<br>
+          味わい尽くす。<br>
+          <em>２りんかん前夜祭、</em><br>
+          完全限定20組で開幕
+        </h1>
+
+        <div class="hero-info-grid" role="list">
+          <div class="hero-info-item" role="listitem">
+            <span class="icon" aria-hidden="true">📅</span>
+            <span>2025年7月11日（金）</span>
+          </div>
+          <div class="hero-info-item" role="listitem">
+            <span class="icon" aria-hidden="true">📍</span>
+            <span>上川ファミリーオートキャンプ村</span>
+          </div>
+          <div class="hero-info-item" role="listitem">
+            <span class="icon" aria-hidden="true">👥</span>
+            <span>定員：完全限定20組</span>
+          </div>
+        </div>
+
+        <div class="hero-novelty" role="note">
+          <span class="gift-icon" aria-hidden="true">🎁</span>
+          <span>先着ノベルティプレゼント！ 数量限定・なくなり次第終了</span>
+        </div>
+
+        <div class="hero-cta-wrap">
+          <a href="#reserve" class="btn-cta" aria-label="予約フォームへ（〇月〇日締切）">
+            いますぐ予約する（〇月〇日締切）
+          </a>
+          <p class="hero-deadline">※ 各グループ枠は先着順。定員に達し次第、受付終了となります。</p>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         2. WELCOME（主催者の想い）
+    ===================================================== -->
+    <section id="welcome" aria-labelledby="welcome-heading">
+      <div class="container">
+        <div class="welcome-inner">
+          <div class="welcome-text">
+            <span class="section-label">Welcome Message</span>
+            <h2 class="section-title" id="welcome-heading">
+              運営陣が自ら音頭をとる、<br>本気の歓迎をここで。
+            </h2>
+
+            <blockquote class="greeting-quote">
+              「上川に来てくれるみなさんを、<br>
+              全力でもてなしたい。それだけです。」
+            </blockquote>
+
+            <p>
+              ２りんかん前夜祭は、単なるバーベキューイベントではありません。
+              上川の大地が育んだ食材と、この土地を愛する人々が集まり、
+              一夜限りの特別な体験を共に作り上げる場です。
+              運営陣が自ら火を起こし、肉を焼き、酒を注ぎ、歌います。
+            </p>
+            <p>
+              キャンプ場の管理者・シンジ氏をはじめ、地元の生産者・料理人が
+              総出でみなさんをお迎えします。上川の豊かな自然の中で、
+              忘れられない夜を一緒に作りましょう。
+            </p>
+          </div>
+
+          <div class="welcome-portrait-wrap">
+            <!--
+              【画像差し替え方法】
+              src 属性をシンジ氏のポートレート画像に変更してください。
+              例: src="images/shinji-portrait.jpg"
+            -->
+            <div class="haze-wrap" style="max-width:360px; width:100%; aspect-ratio:3/4;">
+              <img
+                class="img-haze"
+                src="camp.jpg"
+                alt="キャンプ場管理者 シンジ氏のポートレート（プレースホルダー）"
+                style="width:100%; height:100%; object-fit:cover;"
+                loading="lazy"
+              />
+            </div>
+            <div class="portrait-caption">
+              <p class="name">シンジ 氏</p>
+              <p class="role">上川ファミリーオートキャンプ村 管理者</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         3. TERROIR（上川テロワールと体験）
+    ===================================================== -->
+    <section id="terroir" aria-labelledby="terroir-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Upper Kamikawa Terroir</span>
+          <h2 class="section-title" id="terroir-heading">
+            この土地だけが持つ味と、<br>この夜だけの体験。
+          </h2>
+          <p class="section-lead">
+            大雪山の恵みが育んだ食材と、上川の職人たちが作り上げる料理。
+            ここでしか出会えない「上川テロワール」を、五感で味わってください。
+          </p>
+        </div>
+
+        <div class="terroir-grid">
+
+          <!-- カード1：ジビエ・肉 -->
+          <article class="terroir-card">
+            <!--
+              【画像差し替え方法】
+              src 属性を実際の料理写真に変更してください。
+              例: src="images/venison-dish.jpg"
+            -->
+            <div class="card-img-wrap">
+              <img
+                class="img-haze"
+                src="venison.jpg"
+                alt="ふたばジビエの鹿肉グリル・大雪高原牛（プレースホルダー）"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <p class="card-tag">Gibier &amp; Beef</p>
+              <h3 class="card-title">ふたばジビエの鹿肉 &amp; 大雪高原牛</h3>
+              <p class="card-desc">
+                上川の森で育ったエゾシカと、大雪山麓の清流で育った高原牛。
+                季節の野菜とともに、炭火でじっくりと焼き上げます。
+              </p>
+            </div>
+          </article>
+
+          <!-- カード2：ピザ -->
+          <article class="terroir-card">
+            <!--
+              【画像差し替え方法】
+              src 属性を実際のピザ写真に変更してください。
+              例: src="images/pizza-kiln.jpg"
+            -->
+            <div class="card-img-wrap">
+              <img
+                class="img-haze"
+                src="pizza.jpg"
+                alt="薪窯焼き本格ピザ（プレースホルダー）"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <p class="card-tag">Wood-Fired Pizza</p>
+              <h3 class="card-title">生地が薄い、本格釜焼きピザ</h3>
+              <p class="card-desc">
+                薄くのばした生地を高温の薪窯で一気に焼き上げる、
+                本格ナポリスタイルのピザ。上川産の食材をトッピングした
+                特製レシピで、キャンプ場の野外で焼きたてをどうぞ。
+              </p>
+            </div>
+          </article>
+
+          <!-- カード3：ハイボールバー -->
+          <article class="terroir-card">
+            <!--
+              【画像差し替え方法】
+              src 属性を実際のドリンク写真に変更してください。
+              例: src="images/highball-bar.jpg"
+            -->
+            <div class="card-img-wrap">
+              <img
+                class="img-haze"
+                src="mountain.jpg"
+                alt="大雪山の名水ハイボールバー（プレースホルダー）"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <p class="card-tag">Self Highball Bar</p>
+              <h3 class="card-title">大雪山の名水 × 瀬戸田産レモン<br>セルフハイボールバー</h3>
+              <p class="card-desc">
+                大雪山の伏流水で割るウイスキーハイボール。
+                広島・瀬戸田産の無農薬レモンを絞って、
+                自分だけの一杯を作るセルフスタイル。お酒はセルフサービスです。
+              </p>
+            </div>
+          </article>
+
+          <!-- カード4：キャンプファイヤー -->
+          <article class="terroir-card">
+            <!--
+              【画像差し替え方法】
+              src 属性を実際のキャンプファイヤー写真に変更してください。
+              例: src="images/campfire-night.jpg"
+            -->
+            <div class="card-img-wrap">
+              <img
+                class="img-haze"
+                src="campfire.jpg"
+                alt="昭和歌謡×キャンプファイヤーの夜（プレースホルダー）"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <p class="card-tag">Night Experience</p>
+              <h3 class="card-title">昭和歌謡 × キャンプファイヤー<br>エモーショナルな夜</h3>
+              <p class="card-desc">
+                焚き火を囲んで、昭和歌謡が流れる夜。
+                世代を超えて歌い、笑い、語り合う。
+                上川の星空の下、この夜だけの特別な時間をご一緒に。
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         4. PLANS（募集要項）
+    ===================================================== -->
+    <section id="plans" aria-labelledby="plans-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Participation Plans</span>
+          <h2 class="section-title" id="plans-heading">参加プランと募集要項</h2>
+          <p class="section-lead" style="margin-inline:auto; text-align:center;">
+            日帰りでも、宿泊でも。あなたのスタイルに合わせてお選びください。
+          </p>
+        </div>
+
+        <!-- プランカード -->
+        <div class="plan-cards">
+
+          <!-- 日帰りプラン -->
+          <div class="plan-card">
+            <h3 class="plan-name">🌅 日帰りプラン</h3>
+            <div class="plan-price">¥5,500<span>／1名</span></div>
+            <p class="plan-tax">税込価格</p>
+            <ul class="plan-features">
+              <li>BBQディナー（鹿肉・大雪高原牛・季節野菜）</li>
+              <li>本格釜焼きピザ</li>
+              <li>ドリンクバー（ソフトドリンク含む）</li>
+              <li>セルフハイボールバー利用</li>
+              <li>昭和歌謡×キャンプファイヤー参加</li>
+              <li>先着ノベルティプレゼント（数量限定）</li>
+            </ul>
+          </div>
+
+          <!-- バンガロー宿泊プラン -->
+          <div class="plan-card">
+            <h3 class="plan-name">🏕️ バンガロー宿泊プラン</h3>
+            <div class="plan-price">¥9,900<span>／1名</span></div>
+            <p class="plan-tax">税込価格</p>
+            <ul class="plan-features">
+              <li>日帰りプランの全内容</li>
+              <li>バンガロー宿泊（1泊）</li>
+              <li>翌朝の朝食（豚汁 &amp; コーヒー）</li>
+              <li>大雪山の朝の空気を独り占め</li>
+              <li>先着ノベルティプレゼント（数量限定）</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- レンタルオプション -->
+        <div class="rental-box" role="note">
+          <div class="rental-icon" aria-hidden="true">🛏️</div>
+          <div class="rental-text">
+            <p class="rental-title">レンタルオプション</p>
+            <p class="rental-price">マット・寝袋セット ¥550<span style="font-size:0.85rem; font-weight:400; color:var(--color-text-sub);">（税込）</span></p>
+            <p class="rental-note">バンガロー宿泊プランご利用の方向け。数量限定のため、お早めにお申し込みください。</p>
+          </div>
+        </div>
+
+        <!-- 定員枠テーブル -->
+        <h3 class="quota-title">定員枠（完全限定20組）</h3>
+        <div class="quota-table-wrap">
+          <table class="quota-table" aria-label="定員枠一覧">
+            <thead>
+              <tr>
+                <th scope="col">グループ枠</th>
+                <th scope="col">人数</th>
+                <th scope="col">組数</th>
+                <th scope="col">残枠状況</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aグループ枠</td>
+                <td>2〜3名</td>
+                <td>10組</td>
+                <td class="available">受付中</td>
+              </tr>
+              <tr>
+                <td>Bグループ枠</td>
+                <td>3〜4名</td>
+                <td>5組</td>
+                <td class="available">受付中</td>
+              </tr>
+              <tr>
+                <td>Cグループ枠</td>
+                <td>4〜5名</td>
+                <td>5組</td>
+                <td class="available">受付中</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         5. ACCESS（アクセス情報）
+    ===================================================== -->
+    <section id="access" aria-labelledby="access-heading">
+      <div class="container">
+        <span class="section-label">Access</span>
+        <h2 class="section-title" id="access-heading">アクセス情報</h2>
+
+        <div class="access-inner">
+          <div class="access-info">
+            <p class="access-venue">📍 上川ファミリーオートキャンプ村 / ヤマイチカフェ</p>
+            <div class="access-detail">
+              <div class="access-row">
+                <span class="a-label">住所</span>
+                <span class="a-val">北海道上川郡上川町〇〇番地<br>（詳細住所は予約確定後にご案内します）</span>
+              </div>
+              <div class="access-row">
+                <span class="a-label">車</span>
+                <span class="a-val">旭川紋別自動車道・上川層雲峡ICより約〇分。<br>層雲峡ビジターセンターを目印にお越しください。</span>
+              </div>
+              <div class="access-row">
+                <span class="a-label">公共交通</span>
+                <span class="a-val">JR上川駅よりバスまたはタクシーをご利用ください。<br>（詳細は予約確定後にご案内）</span>
+              </div>
+              <div class="access-row">
+                <span class="a-label">駐車場</span>
+                <span class="a-val">無料駐車場あり（台数に限りがあります）</span>
+              </div>
+              <div class="access-row">
+                <span class="a-label">問合せ</span>
+                <span class="a-val">ヤマイチカフェ（上川）<br>営業時間内にお問い合わせください。</span>
+              </div>
+            </div>
+          </div>
+
+          <!--
+            【Googleマップ埋め込み方法】
+            以下の .map-placeholder div を削除し、
+            Googleマップの「共有」→「地図を埋め込む」で取得した
+            <iframe> タグを .map-iframe-wrap div の中に貼り付けてください。
+
+            例:
+            <div class="map-iframe-wrap">
+              <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen loading="lazy"></iframe>
+            </div>
+          -->
+          <div class="map-placeholder" role="img" aria-label="Googleマップ埋め込みプレースホルダー">
+            <span class="map-icon" aria-hidden="true">🗺️</span>
+            <strong>Googleマップ埋め込みエリア</strong>
+            <p class="map-note">
+              ここに &lt;iframe&gt; タグを貼り付けると<br>
+              Googleマップが表示されます。<br>
+              （Googleマップ → 共有 → 地図を埋め込む）
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         6. FAQ・免責事項
+    ===================================================== -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title" id="faq-heading">よくある質問と注意事項</h2>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <details class="faq-item" role="listitem">
+            <summary>
+              <span class="faq-q">メニューは当日変わることがありますか？</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              はい、仕入れ状況によってメニューが変わる可能性があります。
+              あらかじめご了承ください。代替食材は同等品質のものをご用意します。
+            </div>
+          </details>
+
+          <details class="faq-item" role="listitem">
+            <summary>
+              <span class="faq-q">お酒はどのように提供されますか？</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              お酒（ハイボール・ビールなど）はセルフサービス形式です。
+              大雪山の名水と瀬戸田産レモンを使ったセルフハイボールバーを
+              ご自由にお楽しみいただけます。
+            </div>
+          </details>
+
+        </div>
+
+        <!-- 免責事項 -->
+        <div class="disclaimer-box" role="note" aria-label="免責事項">
+          <p class="disclaimer-title">⚠️ 免責事項・注意事項</p>
+          <ul>
+            <li>仕入れ状況によりメニューが変更になる場合があります。あらかじめご了承ください。</li>
+            <li>お酒はセルフサービスです。飲酒運転は絶対におやめください。</li>
+            <li>キャンプ場内での事故・怪我について、主催者は責任を負いかねます。安全には十分ご注意ください。</li>
+            <li>荒天時は内容変更・中止となる場合があります。</li>
+            <li>食物アレルギーをお持ちの方は、予約時に必ずお申し出ください。</li>
+            <li>会場内での撮影・SNS投稿は基本的に自由ですが、他の参加者のプライバシーに配慮してください。</li>
+            <li>ゴミは各自お持ち帰りいただく場合があります。環境への配慮をお願いします。</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         7. CLOSING CTA
+    ===================================================== -->
+    <section id="closing" aria-labelledby="closing-heading">
+      <div class="closing-inner">
+        <span class="closing-label">Reserve Now</span>
+        <h2 class="closing-title" id="closing-heading">
+          <em>上川の夜</em>は、<br>
+          あなたを待っています。
+        </h2>
+        <p class="closing-sub">
+          完全限定20組。定員に達し次第、受付終了となります。<br>
+          この夏、忘れられない一夜を上川で。
+        </p>
+
+        <!-- 残枠インジケーター -->
+        <div class="quota-indicators" aria-label="残枠状況">
+          <div class="quota-ind">
+            <span class="q-label">A枠（2〜3名）</span>
+            <div class="q-bar-wrap">
+              <div class="q-bar" style="width:30%;" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <span class="q-count">受付中</span>
+          </div>
+          <div class="quota-ind">
+            <span class="q-label">B枠（3〜4名）</span>
+            <div class="q-bar-wrap">
+              <div class="q-bar" style="width:20%;" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <span class="q-count">受付中</span>
+          </div>
+          <div class="quota-ind">
+            <span class="q-label">C枠（4〜5名）</span>
+            <div class="q-bar-wrap">
+              <div class="q-bar" style="width:20%;" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <span class="q-count">受付中</span>
+          </div>
+        </div>
+
+        <div class="closing-btn-wrap">
+          <!--
+            【予約リンク差し替え方法】
+            href 属性を実際の予約フォームURLに変更してください。
+            例: href="https://forms.gle/xxxxxxxx"
+                href="https://reserva.be/xxxxxxxx"
+          -->
+          <a href="#reserve" id="reserve" class="btn-cta" aria-label="予約フォームへ">
+            いますぐ予約する
+          </a>
+          <p class="closing-deadline">
+            <strong>〇月〇日（〇）予約締切。</strong><br>
+            各グループ枠は定員に達し次第、先着順で受付終了となります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+  <footer>
+    <p>
+      &copy; 2025 ２りんかん前夜祭 実行委員会 ／
+      <a href="#">プライバシーポリシー</a> ／
+      <a href="#">お問い合わせ</a>
+    </p>
+    <p style="margin-top:6px;">
+      上川ファミリーオートキャンプ村 ／ ヤマイチカフェ（北海道上川郡上川町）
+    </p>
+  </footer>
+
+  <!-- =====================================================
+       JAVASCRIPT（スティッキーヘッダー制御）
+  ===================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // スティッキーヘッダー：ヒーローセクションを過ぎたら表示
+      var header = document.getElementById('stickyHeader');
+      var hero   = document.getElementById('hero');
+
+      if (!header || !hero) return;
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              header.classList.add('visible');
+            } else {
+              header.classList.remove('visible');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(hero);
+
+      // FAQアコーディオン：details/summary はネイティブ動作を使用
+      // アニメーションのみ追加
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          // open 状態の変化はブラウザネイティブで処理済み
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
