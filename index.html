@@ -658,31 +658,7 @@
       font-size: 0.78rem;
     }
 
-    /* ===========================
-       9. FLOATING CTA BUTTON
-    =========================== */
-    #float-cta {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 999;
-      background: var(--orange);
-      color: var(--white);
-      font-size: 0.88rem;
-      font-weight: 900;
-      padding: 16px 22px;
-      border-radius: 50px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
-      text-align: center;
-      line-height: 1.3;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      pointer-events: none;
-    }
-    #float-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    #float-cta:hover { background: var(--orange-dark); }
-    #float-cta .float-sub { display: block; font-size: 0.68rem; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+    /* 9. FLOATING CTA BUTTON - removed */
 
     /* ===========================
        RESPONSIVE
@@ -694,7 +670,7 @@
       .plan-grid { grid-template-columns: 1fr; gap: 20px; }
       .access-grid { grid-template-columns: 1fr; gap: 40px; }
       .rental-box { flex-direction: column; align-items: flex-start; gap: 10px; }
-      #float-cta { bottom: 16px; right: 12px; left: 12px; border-radius: 8px; font-size: 1rem; padding: 18px 20px; }
+
       .hero-collage { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
       .weather-notice { flex-direction: column; gap: 12px; }
     }
@@ -743,6 +719,9 @@
         <span class="hero-badge hero-badge--orange">２りんかん祭り Connect HOKKAIDO 参加者限定</span>
         <span class="hero-badge hero-badge--gold">完全限定 20組</span>
         <span class="hero-badge hero-badge--outline">先着順受付</span>
+      </div>
+      <div style="margin-top:18px; margin-bottom:28px;">
+        <a href="#reserve" class="btn-cta" style="font-size:0.95rem; padding:14px 36px; border-radius:4px;">今すぐ予約する</a>
       </div>
       <h1 class="hero-headline">
         上川の地場産品を<br>
@@ -954,7 +933,6 @@
               <li>ドリンクバー（ソフトドリンク含む）</li>
               <li>セルフハイボールバー利用</li>
               <li>昭和歌謡×キャンプファイヤー参加</li>
-              <li>先着ノベルティプレゼント（数量限定）</li>
             </ul>
           </div>
         </div>
@@ -969,7 +947,6 @@
               <li>バンガロー宿泊（1泊）</li>
               <li>翌朝の朝食（豚汁 &amp; コーヒー）</li>
               <li>大雪山の朝の空気を独り占め</li>
-              <li>先着ノベルティプレゼント（数量限定）</li>
             </ul>
           </div>
         </div>
@@ -1168,13 +1145,7 @@
     <p>© 2025 On our journey. ／ 上川ファミリーオートキャンプ村　All Rights Reserved.</p>
   </footer>
 
-  <!-- ===========================
-       9. FLOATING CTA BUTTON
-  =========================== -->
-  <a href="#reserve" id="float-cta">
-    今すぐ予約する
-    <span class="float-sub">完全限定20組・先着順</span>
-  </a>
+
 
   <!-- ===========================
        JAVASCRIPT
@@ -1183,17 +1154,13 @@
     // Sticky header & floating CTA: show after hero section scrolls out of view
     const hero = document.getElementById('hero');
     const stickyHeader = document.getElementById('sticky-header');
-    const floatCta = document.getElementById('float-cta');
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isHeroVisible = entry.isIntersecting;
         if (isHeroVisible) {
           stickyHeader.classList.remove('visible');
-          floatCta.classList.remove('visible');
         } else {
           stickyHeader.classList.add('visible');
-          floatCta.classList.add('visible');
         }
       },
       { threshold: 0.1 }
