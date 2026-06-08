@@ -663,83 +663,132 @@
        RESPONSIVE
     =========================== */
     @media (max-width: 768px) {
-      /* Hero */
-      .hero-content { padding: 100px 20px 60px; }
-      .hero-headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-      .hero-catch { font-size: 0.95rem; }
-      .hero-badge { font-size: 0.72rem; padding: 5px 12px; }
-      .btn-cta--hero { max-width: 100%; font-size: 1.1rem; padding: 18px 0; }
-      .hero-meta { gap: 12px; }
+      /* ---- General ---- */
+      body { font-size: 15px; line-height: 1.85; word-break: auto-phrase; overflow-wrap: break-word; }
+      .section { padding: 52px 0; }
+      h2 { font-size: clamp(1.25rem, 5.5vw, 1.75rem); line-height: 1.4; }
+      h3 { font-size: clamp(1rem, 4.5vw, 1.3rem); line-height: 1.45; }
+      .container { padding: 0 18px; }
 
-      /* Story */
+      /* ---- Hero ---- */
+      .hero-content { padding: 96px 18px 56px; }
+      .hero-headline { font-size: clamp(1.65rem, 7.5vw, 2.4rem); line-height: 1.3; letter-spacing: -0.01em; }
+      .hero-catch { font-size: 0.93rem; line-height: 1.85; max-width: 100%; }
+      .hero-badge { font-size: 0.7rem; padding: 5px 11px; }
+      .btn-cta--hero { max-width: 100%; font-size: 1.05rem; padding: 18px 0; }
+      .hero-meta { gap: 10px; flex-direction: column; }
+      .hero-meta-item { font-size: 0.88rem; }
+      .hero-microcopy { font-size: 0.78rem; max-width: 100%; }
+
+      /* ---- Empathy ---- */
+      #empathy { padding: 52px 0; }
+      .empathy-inner { padding: 0 18px; }
+      .empathy-headline { font-size: clamp(1.15rem, 5.5vw, 1.6rem); line-height: 1.5; margin-bottom: 24px; }
+      .empathy-text { font-size: 0.95rem; line-height: 1.9; }
+      .empathy-list li { font-size: 0.93rem; line-height: 1.75; padding: 11px 0 11px 26px; }
+
+      /* ---- Benefit ---- */
+      .benefit-grid { grid-template-columns: 1fr; gap: 36px; }
+      .benefit-lead { font-size: clamp(1.1rem, 5vw, 1.5rem); line-height: 1.5; }
+      .benefit-sub { font-size: 0.93rem; }
+      .benefit-note { font-size: 0.82rem; padding: 10px 14px; }
+      .benefit-card-title { font-size: 1.05rem; line-height: 1.45; }
+      .benefit-card-desc { font-size: 0.9rem; line-height: 1.8; }
+      .weather-notice { flex-direction: column; gap: 10px; padding: 16px 16px; }
+      .weather-notice-body p { font-size: 0.88rem; line-height: 1.8; }
+
+      /* ---- Story ---- */
       .story-inner { grid-template-columns: 1fr; gap: 36px; }
+      .story-text p { font-size: 0.95rem; line-height: 1.9; }
+      .story-quote { font-size: 0.93rem; line-height: 1.8; padding: 16px 18px; }
       .story-profile { flex-direction: row; align-items: center; gap: 20px; }
-      .story-profile .img-wrap { width: 120px; height: 120px; flex-shrink: 0; }
-      .story-profile-name { text-align: left; }
-      .story-profile-role { text-align: left; }
+      .story-profile .img-wrap { width: 110px; height: 110px; flex-shrink: 0; }
+      .story-profile-name { text-align: left; font-size: 1rem; }
+      .story-profile-role { text-align: left; font-size: 0.78rem; }
+      .story-contact { padding: 16px 18px; }
+      .story-contact table td { font-size: 0.82rem; line-height: 1.7; }
 
-      /* Plan */
+      /* ---- Plan ---- */
       .plan-grid { grid-template-columns: 1fr; gap: 20px; }
       .plan-card-price { font-size: 1.7rem; }
-      .capacity-table { font-size: 0.82rem; }
+      .plan-card-list li { font-size: 0.9rem; line-height: 1.75; }
+      .quota-table { font-size: 0.85rem; }
+      .quota-table th, .quota-table td { padding: 10px 12px; }
 
-      /* FAQ */
-      .faq-item summary { font-size: 0.95rem; padding: 16px 40px 16px 16px; }
-      .faq-answer { font-size: 0.88rem; padding: 14px 16px; }
+      /* ---- FAQ ---- */
+      .faq-item summary { font-size: 0.93rem; padding: 16px 40px 16px 16px; line-height: 1.5; }
+      .faq-answer { font-size: 0.88rem; padding: 14px 16px; line-height: 1.85; }
+      .disclaimer-list li { font-size: 0.82rem; line-height: 1.75; }
 
-      /* Access */
+      /* ---- Access ---- */
       .access-grid { grid-template-columns: 1fr; gap: 32px; }
       .access-table { font-size: 0.82rem; }
-      .access-table th, .access-table td { padding: 8px 10px; }
+      .access-table th, .access-table td { padding: 8px 10px; line-height: 1.7; }
+      .access-info-block p { font-size: 0.9rem; line-height: 1.8; }
 
-      /* Closing */
-      .closing-inner { padding: 60px 20px; }
-      .btn-cta--closing { font-size: 1.2rem; padding: 20px 0; max-width: 100%; }
-
-      /* General */
-      .section { padding: 56px 0; }
-      h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
-      h3 { font-size: clamp(1rem, 4vw, 1.3rem); }
-      .container { padding: 0 16px; }
-      .weather-notice { flex-direction: column; gap: 10px; padding: 16px 18px; }
-      .story-contact table td { font-size: 0.82rem; }
-      /* Benefit grid: 1 column on mobile */
-      .benefit-grid { grid-template-columns: 1fr; gap: 36px; }
+      /* ---- Closing ---- */
+      .closing-inner { padding: 56px 18px; }
+      #closing h2 { font-size: clamp(1.4rem, 6vw, 2rem); line-height: 1.4; margin-bottom: 24px; }
+      .closing-text { font-size: 0.95rem; line-height: 1.95; margin-bottom: 36px; }
+      .btn-cta--closing { font-size: 1.15rem; padding: 20px 0; max-width: 100%; }
+      .closing-microcopy { font-size: 0.78rem; line-height: 1.7; }
     }
 
     @media (max-width: 480px) {
-      /* Hero */
-      .hero-badge-row { gap: 6px; }
-      .hero-badge { font-size: 0.68rem; padding: 4px 10px; }
-      .hero-headline { font-size: clamp(1.5rem, 8vw, 2rem); }
+      /* ---- General ---- */
+      body { font-size: 14.5px; }
+      .container { padding: 0 16px; }
+      .section-label { font-size: 0.66rem; }
+
+      /* ---- Hero ---- */
+      .hero-content { padding: 88px 16px 52px; }
+      .hero-badge-row { gap: 6px; flex-wrap: wrap; }
+      .hero-badge { font-size: 0.66rem; padding: 4px 10px; }
+      .hero-headline { font-size: clamp(1.45rem, 8.5vw, 1.9rem); line-height: 1.32; }
+      .hero-catch { font-size: 0.88rem; line-height: 1.85; }
       .hero-meta-item { font-size: 0.85rem; }
-      .hero-meta { gap: 8px; }
 
-      /* Sticky header */
-      .sticky-title { font-size: 0.78rem; }
-      .sticky-cta { font-size: 0.75rem; padding: 7px 14px; }
+      /* ---- Sticky header ---- */
+      .sticky-title { font-size: 0.75rem; }
+      .sticky-cta { font-size: 0.73rem; padding: 7px 12px; }
 
-      /* Story profile: stack vertically on very small screens */
+      /* ---- Empathy ---- */
+      .empathy-headline { font-size: clamp(1.05rem, 6vw, 1.4rem); }
+      .empathy-text { font-size: 0.9rem; }
+
+      /* ---- Benefit ---- */
+      .benefit-lead { font-size: clamp(1rem, 5.5vw, 1.35rem); }
+      .benefit-card-title { font-size: 1rem; }
+      .benefit-card-desc { font-size: 0.88rem; }
+
+      /* ---- Story ---- */
       .story-profile { flex-direction: column; align-items: center; }
+      .story-profile .img-wrap { width: 130px; height: 130px; }
       .story-profile-name { text-align: center; }
       .story-profile-role { text-align: center; }
+      .story-text p { font-size: 0.9rem; }
 
-      /* Plan */
-      .plan-card-header { padding: 18px 20px; }
-      .plan-card-body { padding: 18px 20px; }
+      /* ---- Plan ---- */
+      .plan-card-header { padding: 16px 18px; }
+      .plan-card-body { padding: 16px 18px; }
       .plan-card-price { font-size: 1.5rem; }
-      .rental-box { padding: 16px 18px; }
+      .rental-box { padding: 14px 16px; flex-direction: column; gap: 8px; }
+      .quota-table { font-size: 0.8rem; }
 
-      /* Access */
-      .access-table th { white-space: normal; min-width: 60px; }
+      /* ---- FAQ ---- */
+      .faq-item summary { font-size: 0.88rem; padding: 14px 36px 14px 14px; }
+      .faq-answer { font-size: 0.85rem; padding: 12px 14px; }
 
-      /* Closing */
-      .closing-inner { padding: 48px 16px; }
-      .btn-cta--closing { font-size: 1.05rem; padding: 18px 0; }
-      .closing-microcopy { font-size: 0.78rem; }
+      /* ---- Access ---- */
+      .access-table th { white-space: normal; min-width: 56px; }
+      .access-table { font-size: 0.8rem; }
 
-      /* Section label */
-      .section-label { font-size: 0.68rem; }
+      /* ---- Closing ---- */
+      .closing-inner { padding: 44px 16px; }
+      #closing h2 { font-size: clamp(1.3rem, 7vw, 1.8rem); }
+      .closing-text { font-size: 0.9rem; line-height: 1.95; }
+      .btn-cta--closing { font-size: 1rem; padding: 18px 0; }
+      .closing-microcopy { font-size: 0.75rem; }
     }
   </style>
 </head>
