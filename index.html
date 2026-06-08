@@ -261,130 +261,6 @@
     }
 
     /* ===========================
-       2. EMPATHY SECTION
-    =========================== */
-    #empathy { background-color: var(--bg-alt); padding: 80px 0; }
-    .empathy-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-      text-align: center;
-    }
-    .empathy-headline {
-      font-size: clamp(1.3rem, 3.5vw, 2rem);
-      font-weight: 900;
-      color: var(--green);
-      margin-bottom: 32px;
-      line-height: 1.45;
-    }
-    .empathy-text {
-      font-size: 1.05rem;
-      color: var(--text);
-      line-height: 1.9;
-      margin-bottom: 24px;
-    }
-    .empathy-highlight {
-      display: inline-block;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 2px;
-    }
-    .empathy-list {
-      list-style: none;
-      text-align: left;
-      display: inline-block;
-      margin-top: 24px;
-      border-top: 2px solid var(--green-light);
-    }
-    .empathy-list li {
-      font-size: 1rem;
-      color: var(--text);
-      padding: 12px 0;
-      padding-left: 28px;
-      position: relative;
-      border-bottom: 1px solid var(--green-light);
-    }
-    .empathy-list li::before {
-      content: "…";
-      position: absolute;
-      left: 0;
-      color: var(--text-muted);
-      font-size: 1.2rem;
-    }
-
-    /* ===========================
-       3. BENEFIT / SOLUTION
-    =========================== */
-    #benefit { background-color: var(--bg); padding: 80px 0; }
-    .benefit-lead {
-      font-size: clamp(1.2rem, 3vw, 1.7rem);
-      font-weight: 900;
-      color: var(--green);
-      text-align: center;
-      margin-bottom: 12px;
-      line-height: 1.45;
-    }
-    .benefit-sub {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .benefit-note {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      background: var(--bg-alt);
-      border-left: 3px solid var(--orange);
-      padding: 10px 18px;
-      border-radius: 0 4px 4px 0;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      text-align: left;
-    }
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px 40px;
-    }
-    .benefit-card { display: flex; flex-direction: column; gap: 14px; }
-    .benefit-card .img-wrap { width: 100%; aspect-ratio: 4/3; }
-    .benefit-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .benefit-card-num { font-size: 2.2rem; font-weight: 900; color: var(--green-light); line-height: 1; }
-    .benefit-card-title { font-size: 1.1rem; font-weight: 900; color: var(--green); line-height: 1.4; }
-    .benefit-card-desc { font-size: 0.93rem; color: var(--text); line-height: 1.8; margin-top: 0; }
-
-    /* 荒天注記バナー */
-    .weather-notice {
-      margin-top: 48px;
-      background: #EAF0E8;
-      border: 1.5px solid var(--green);
-      border-radius: 8px;
-      padding: 22px 28px;
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-    .weather-notice-icon {
-      font-size: 1.8rem;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-    .weather-notice-body h4 {
-      font-size: 1rem;
-      color: var(--green-dark);
-      margin-bottom: 8px;
-    }
-    .weather-notice-body p {
-      font-size: 0.9rem;
-      color: var(--text);
-      line-height: 1.75;
-    }
-    .weather-notice-body strong { color: var(--green-dark); }
-
-    /* ===========================
        4. STORY SECTION
     =========================== */
     #story { background-color: var(--green-dark); color: var(--white); padding: 80px 0; }
@@ -664,19 +540,81 @@
        RESPONSIVE
     =========================== */
     @media (max-width: 768px) {
-      .section { padding: 60px 0; }
-      .benefit-grid { grid-template-columns: 1fr; gap: 40px; }
-      .story-inner { grid-template-columns: 1fr; gap: 40px; }
-      .plan-grid { grid-template-columns: 1fr; gap: 20px; }
-      .access-grid { grid-template-columns: 1fr; gap: 40px; }
-      .rental-box { flex-direction: column; align-items: flex-start; gap: 10px; }
+      /* Hero */
+      .hero-content { padding: 100px 20px 60px; }
+      .hero-headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+      .hero-catch { font-size: 0.95rem; }
+      .hero-badge { font-size: 0.72rem; padding: 5px 12px; }
+      .btn-cta--hero { max-width: 100%; font-size: 1.1rem; padding: 18px 0; }
+      .hero-meta { gap: 12px; }
 
-      .hero-collage { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-      .weather-notice { flex-direction: column; gap: 12px; }
+      /* Story */
+      .story-inner { grid-template-columns: 1fr; gap: 36px; }
+      .story-profile { flex-direction: row; align-items: center; gap: 20px; }
+      .story-profile .img-wrap { width: 120px; height: 120px; flex-shrink: 0; }
+      .story-profile-name { text-align: left; }
+      .story-profile-role { text-align: left; }
+
+      /* Plan */
+      .plan-grid { grid-template-columns: 1fr; gap: 20px; }
+      .plan-card-price { font-size: 1.7rem; }
+      .capacity-table { font-size: 0.82rem; }
+
+      /* FAQ */
+      .faq-item summary { font-size: 0.95rem; padding: 16px 40px 16px 16px; }
+      .faq-answer { font-size: 0.88rem; padding: 14px 16px; }
+
+      /* Access */
+      .access-grid { grid-template-columns: 1fr; gap: 32px; }
+      .access-table { font-size: 0.82rem; }
+      .access-table th, .access-table td { padding: 8px 10px; }
+
+      /* Closing */
+      .closing-inner { padding: 60px 20px; }
+      .btn-cta--closing { font-size: 1.2rem; padding: 20px 0; max-width: 100%; }
+
+      /* General */
+      .section { padding: 56px 0; }
+      h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+      h3 { font-size: clamp(1rem, 4vw, 1.3rem); }
+      .container { padding: 0 16px; }
+      .weather-notice { flex-direction: column; gap: 10px; padding: 16px 18px; }
+      .story-contact table td { font-size: 0.82rem; }
     }
+
     @media (max-width: 480px) {
-      .hero-badge-row { gap: 8px; }
-      .btn-cta--closing { font-size: 1.1rem; padding: 22px 0; }
+      /* Hero */
+      .hero-badge-row { gap: 6px; }
+      .hero-badge { font-size: 0.68rem; padding: 4px 10px; }
+      .hero-headline { font-size: clamp(1.5rem, 8vw, 2rem); }
+      .hero-meta-item { font-size: 0.85rem; }
+      .hero-meta { gap: 8px; }
+
+      /* Sticky header */
+      .sticky-title { font-size: 0.78rem; }
+      .sticky-cta { font-size: 0.75rem; padding: 7px 14px; }
+
+      /* Story profile: stack vertically on very small screens */
+      .story-profile { flex-direction: column; align-items: center; }
+      .story-profile-name { text-align: center; }
+      .story-profile-role { text-align: center; }
+
+      /* Plan */
+      .plan-card-header { padding: 18px 20px; }
+      .plan-card-body { padding: 18px 20px; }
+      .plan-card-price { font-size: 1.5rem; }
+      .rental-box { padding: 16px 18px; }
+
+      /* Access */
+      .access-table th { white-space: normal; min-width: 60px; }
+
+      /* Closing */
+      .closing-inner { padding: 48px 16px; }
+      .btn-cta--closing { font-size: 1.05rem; padding: 18px 0; }
+      .closing-microcopy { font-size: 0.78rem; }
+
+      /* Section label */
+      .section-label { font-size: 0.68rem; }
     }
   </style>
 </head>
@@ -751,110 +689,9 @@
     </div>
   </section>
 
-  <!-- ===========================
-       2. EMPATHY SECTION
-  =========================== -->
-  <section id="empathy">
-    <div class="empathy-inner">
-      <div class="section-label">あなたへの問いかけ</div>
-      <h2 class="empathy-headline">
-        せっかくのキャンプツーリング、<br>
-        スーパーの買い出しで終わっていませんか？
-      </h2>
-      <div class="divider" style="margin: 0 auto 24px;"></div>
-      <p class="empathy-text">
-        地元ならではの新鮮な食材を食べたいけれど、<br>
-        <span class="empathy-highlight">バイクの積載や手配の手間</span>を考えると難しい…<br>
-        そんな経験はありませんか？
-      </p>
-      <ul class="empathy-list">
-        <li>キャンプ場近くのスーパーで妥協した食材を買ってしまう</li>
-        <li>地元の名物を食べたいが、どこで買えるかわからない</li>
-        <li>バイクに大量の食材や調理器具を積めない</li>
-        <li>せっかくの北海道なのに、食の体験が物足りない</li>
-      </ul>
-    </div>
-  </section>
+  
 
-  <!-- ===========================
-       3. BENEFIT / SOLUTION
-  =========================== -->
-  <section id="benefit" class="section">
-    <div class="container">
-      <div class="section-label">解決策とベネフィット</div>
-      <p class="benefit-lead">
-        前夜祭なら、手ぶらで上川の<br>極上食材と特別な夜が手に入ります
-      </p>
-      <p class="benefit-sub">すべてお任せ。あなたはただ、上川の夜を楽しむだけでいい。</p>
-      <p class="benefit-note">
-        ※ 参加者数や仕入れ状況によって、食材・メニューが変更になる場合がございます。代替食材は同等品質のものをご用意いたします。
-      </p>
-      <div class="benefit-grid">
-
-        <div class="benefit-card">
-          <div class="img-wrap">
-            <!-- 実写：BBQ食材（IMG_0985.JPG） -->
-            <img src="bbq_food.jpg" alt="ふたばジビエの鹿肉・大雪高原牛・季節野菜" class="img-real">
-          </div>
-          <div class="benefit-card-num">01</div>
-          <h3 class="benefit-card-title">ふたばジビエの鹿肉 &amp; 大雪高原牛・季節の野菜</h3>
-          <p class="benefit-card-desc">
-            上川が誇るジビエ専門「ふたば」の鹿肉と、大雪高原牛を炭火でじっくり焼き上げます。旬の地場野菜とともに、北海道の大地の恵みをそのまま味わってください。
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="img-wrap">
-            <!-- 実写：ピザ（ピザ.jpg） -->
-            <img src="pizza.jpg" alt="大雪サーモンの釜焼きピザ" class="img-real">
-          </div>
-          <div class="benefit-card-num">02</div>
-          <h3 class="benefit-card-title">大雪サーモンを使った本格釜焼きピザ</h3>
-          <p class="benefit-card-desc">
-            薪窯で焼き上げる薄生地の本格ナポリスタイル。大雪山の清流で育った大雪サーモンをトッピングした、ここでしか食べられない一枚です。
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="img-wrap">
-            <!-- 実写：レモンスカッシュ（レモンスカッシュ.jpg） -->
-            <img src="lemon_squash.jpg" alt="セルフハイボールバー" class="img-real">
-          </div>
-          <div class="benefit-card-num">03</div>
-          <h3 class="benefit-card-title">セルフハイボールバー ― カムイミンタラの名水 × 瀬戸田産レモン</h3>
-          <p class="benefit-card-desc">
-            大雪山の源流域「カムイミンタラ（神々の遊ぶ庭）」から湧き出る名水と、瀬戸田産レモンで作る自分だけのハイボール。自然の恵みを一杯に凝縮した至福の時間。
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="img-wrap">
-            <!-- 実写：キャンプファイヤー（キャンプファイヤー極.jpg） -->
-            <img src="campfire.jpg" alt="昭和歌謡とキャンプファイヤー" class="img-real">
-          </div>
-          <div class="benefit-card-num">04</div>
-          <h3 class="benefit-card-title">昭和歌謡 × キャンプファイヤーのエモーショナルな夜</h3>
-          <p class="benefit-card-desc">
-            焚き火を囲んで、世代を超えて歌い、語り合う夜。昭和歌謡の懐かしいメロディーが大雪山の星空に溶け込む、忘れられないひとときをお届けします。
-          </p>
-        </div>
-
-      </div>
-
-      <!-- 荒天時の注記 -->
-      <div class="weather-notice">
-        <div class="weather-notice-icon">🌧</div>
-        <div class="weather-notice-body">
-          <h4>荒天時（雨天・強風）のご案内</h4>
-          <p>
-            雨天・強風などの荒天時は、<strong>キャンプファイヤーが中止</strong>となる場合がございます。<br>
-            その場合は、<strong>BBQハウス内にて横嶋氏によるLIVEを開催</strong>いたします。<br>
-            荒天によるプログラム変更が生じた場合も、<strong>プラン料金の変更はございません</strong>。あらかじめご了承ください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ===========================
        4. STORY SECTION
